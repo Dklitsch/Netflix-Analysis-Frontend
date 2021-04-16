@@ -1,6 +1,6 @@
 {
   "name": "netflix-dashboard",
-  "home-page": "https://dklitsch.github.io/Netflix-Analysis-Frontend/",
+  "homepage": "https://dklitsch.github.io/Netflix-Analysis-Frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
