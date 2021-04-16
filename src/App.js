@@ -19,7 +19,6 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
         <p>
           Hi, welcome to my Netflix Analysis Dashboard.
         </p>
@@ -33,7 +32,6 @@ function App() {
         <DirectorChart data={directorData} />
 
         <CastChart data={castData} />
-      </header>
     </div>
   );
 }
