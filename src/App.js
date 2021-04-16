@@ -7,7 +7,7 @@ import TypeChart from './components/TypeChart';
 import DirectorChart from './components/DirectorChart';
 import CastChart from './components/CastChart';
 
-const apiRoute = 'http://dklitsch.pythonanywhere.com'
+const apiRoute = 'https://dklitsch.pythonanywhere.com'
 
 function App() {
 
