@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Netflix-Analysis-Frontend/static/css/main.349b13a6.chunk.css",
-    "main.js": "/Netflix-Analysis-Frontend/static/js/main.65822e05.chunk.js",
-    "main.js.map": "/Netflix-Analysis-Frontend/static/js/main.65822e05.chunk.js.map",
+    "main.js": "/Netflix-Analysis-Frontend/static/js/main.6a1e3dc4.chunk.js",
+    "main.js.map": "/Netflix-Analysis-Frontend/static/js/main.6a1e3dc4.chunk.js.map",
     "runtime-main.js": "/Netflix-Analysis-Frontend/static/js/runtime-main.b0dcb350.js",
     "runtime-main.js.map": "/Netflix-Analysis-Frontend/static/js/runtime-main.b0dcb350.js.map",
     "static/js/2.42e41f20.chunk.js": "/Netflix-Analysis-Frontend/static/js/2.42e41f20.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.b0dcb350.js",
     "static/js/2.42e41f20.chunk.js",
     "static/css/main.349b13a6.chunk.css",
-    "static/js/main.65822e05.chunk.js"
+    "static/js/main.6a1e3dc4.chunk.js"
   ]
 }
