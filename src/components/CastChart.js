@@ -4,17 +4,17 @@ import StyledChart from './StyledChart'
 
 function CastChart(props) {
 
-    const directorNames = props.data === null ? [] : Object.keys(props.data);
-    let directorHeaders = [
-      ['Cast Member', 'Number of Titles', { role: 'annotation' }]
+    const castNames = props.data === null ? [] : Object.keys(props.data);
+    let castHeaders = [
+      ['Country Name', 'Number of Titles', { role: 'annotation' }]
     ];
-    const directorData = directorHeaders.concat(directorNames.map((name) => [name, props.data[name], props.data[name]]))
+    const castData = castHeaders.concat(castNames.map((name) => [name, props.data[name], props.data[name]]))
 
     return (
-      directorData === null ? <p>Loading...</p> : 
+      castData === null ? <p>Loading...</p> : 
         <StyledChart 
-        title='Top 5 directors with the most titles'
-        data={directorData}  
+        title='Top 5 cast members with the most titles'
+        data={castData}  
         height={'50vh'}
         axisTitle='Cast Member'
       />
