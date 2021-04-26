@@ -28,6 +28,10 @@ function App() {
 
   const listedInData = useFetch(`${apiRoute}/listedin/top10`);
 
+  const oldestMovies = useFetch(`${apiRoute}/movie?order=asc&take=5`);
+
+  const oldestTV = useFetch(`${apiRoute}/tvshow?order=asc&take=5`);
+
   return (
     <div className="App">
         <p>
@@ -48,9 +52,21 @@ function App() {
 
         <h2>Netflix skews heavily towards newer titles, half of all titles were released after 2017!</h2>
 
-        <YearChart data={topYearData} title='Top 10 years with the most Netflix titles'/>
+        <YearChart data={topYearData} title='10 years with the most Netflix titles'/>
 
-        <YearChart data={bottomYearData} title='Top 10 years with the least Netflix titles'/>
+        <YearChart data={bottomYearData} title='10 years with the least Netflix titles'/>
+
+        <h2>Top 5 Oldest movies</h2>
+
+        <ol>
+          {oldestMovies != null && oldestMovies.map( d => <li key= {d.title}>{d.title} by {d.director ?? 'unlisted'} - {d['release_year']}</li>)}
+        </ol>
+
+        <h2>Top 5 Oldest TV shows</h2>
+
+        <ol>
+          {oldestTV != null && oldestTV.map( d => <li key= {d.title}>{d.title} - {d['release_year']}</li>)}
+        </ol>
 
         <ListedInChart data={listedInData} />
         
