@@ -8,6 +8,7 @@ import DirectorChart from './components/DirectorChart';
 import CastChart from './components/CastChart';
 import CountryChart from './components/CountryChart';
 import YearChart from './components/YearChart';
+import ListedInChart from './components/ListedInChart';
 
 const apiRoute = 'https://dklitsch.pythonanywhere.com'
 
@@ -22,8 +23,10 @@ function App() {
   const countryData = useFetch(`${apiRoute}/country/top10`);
 
   const topYearData = useFetch(`${apiRoute}/releaseyear/top10`);
-  
+
   const bottomYearData = useFetch(`${apiRoute}/releaseyear/bottom10`);
+
+  const listedInData = useFetch(`${apiRoute}/listedin/top10`);
 
   return (
     <div className="App">
@@ -48,6 +51,8 @@ function App() {
         <YearChart data={topYearData} title='Top 10 years with the most Netflix titles'/>
 
         <YearChart data={bottomYearData} title='Top 10 years with the least Netflix titles'/>
+
+        <ListedInChart data={listedInData} />
         
     </div>
   );
