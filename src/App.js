@@ -1,10 +1,18 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Switch, Route } from 'react-router-dom'
-import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import { AppBar, Grid, IconButton, InputBase, Toolbar, Typography } from '@material-ui/core';
 import HomeView from './components/Views/HomeView'
-import { MuiThemeProvider, createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
+import SearchIcon from '@material-ui/icons/Search';
+import DirectorView from './components/Views/DirectorView';
+import AnalysisAppBar from './components/AnalysisAppBar';
 
 const theme = createMuiTheme({
   palette: {
@@ -17,27 +25,24 @@ const theme = createMuiTheme({
 function App() {
 
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-
-          <AppBar color="primary" position="fixed">
-            <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-              <Typography variant="h6">Netflix Analysis Dashboard</Typography>
-            </Toolbar>
-          </AppBar>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <div class="App">
+          
+          <AnalysisAppBar />
 
           <Toolbar></Toolbar>
-
-          <HomeView></HomeView>
-
+          
           <Switch>
-            <Route exact path='/' component={App}/>
+            <Route path="/director/:name" children={<DirectorView/>}>
+            </Route>
+            <Route path="/">
+              <HomeView />
+            </Route>
           </Switch>
-      </div>
-    </ThemeProvider>
+        </div>
+      </ThemeProvider>
+    </Router>
   );
 }
 

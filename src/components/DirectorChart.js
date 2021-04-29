@@ -1,5 +1,6 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom'; 
+import { Link } from 'react-router-dom';
 import StyledChart from './StyledChart'
 
 function DirectorChart(props) {
@@ -8,7 +9,8 @@ function DirectorChart(props) {
     let directorHeaders = [
       ['Director Name', 'Number of Titles', { role: 'annotation' }]
     ];
-    const directorData = directorHeaders.concat(directorNames.map((name) => [name, props.data[name], props.data[name]]))
+    const directorTemplate = (name) => [name, props.data[name], props.data[name]];
+    const directorData = directorHeaders.concat(directorNames.map(name => directorTemplate(name)));
 
     return (
       directorData === null ? <p>Loading...</p> : 
