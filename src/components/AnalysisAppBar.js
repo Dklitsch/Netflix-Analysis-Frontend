@@ -1,10 +1,13 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom';
 import MenuIcon from '@material-ui/icons/Menu';
-import { AppBar, Grid, IconButton, InputBase, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Grid, IconButton, Input, InputBase, TextField, Toolbar, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import apiRoute from './ApiData';
+import useFetch from './UseFetch';
+import { Autocomplete } from '@material-ui/lab';
 
 const useStyles = makeStyles((theme) => ({
     search: {
@@ -43,10 +46,15 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.up('md')]: {
         width: '60ch',
       },
+      color: 'white'
     },
   }))
 
 export default function AnalysisAppBar(props) {
+
+      const searchTerms = useFetch(`${apiRoute}/searchterms`) ?? [];
+
+      console.log("Search terms: " + JSON.stringify(searchTerms))
 
       const classes = useStyles();
 
@@ -73,13 +81,20 @@ export default function AnalysisAppBar(props) {
                   <div className={classes.searchIcon}>
                     <SearchIcon />
                   </div>
-                  <InputBase
-                    placeholder="Search…"
-                    classes={{
-                      root: classes.inputRoot,
-                      input: classes.inputInput,
-                    }}
-                  />
+                  <Autocomplete
+                        id="free-solo-demo"
+                        className={classes.inputRoot}
+                        options={searchTerms.map((option) => `${option.type}: ${option.term}`)}
+                        size="small"
+                        renderInput={(params) => (
+                            <div ref={params.InputProps.ref}>
+                                <Input style={{ width: 400 }} 
+                                    type="text" {...params.inputProps} 
+                                    className={classes.inputInput} 
+                                />
+                            </div>
+                        )}
+                    />
                 </div>
                 <Typography variant="h6">Netflix Analysis Dashboard</Typography>
               </Grid>

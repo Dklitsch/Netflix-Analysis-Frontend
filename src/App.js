@@ -1,16 +1,9 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import { AppBar, Grid, IconButton, InputBase, Toolbar, Typography } from '@material-ui/core';
+import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
+import { Toolbar } from '@material-ui/core';
 import HomeView from './components/Views/HomeView'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import MenuIcon from '@material-ui/icons/Menu';
-import SearchIcon from '@material-ui/icons/Search';
 import DirectorView from './components/Views/DirectorView';
 import AnalysisAppBar from './components/AnalysisAppBar';
 
