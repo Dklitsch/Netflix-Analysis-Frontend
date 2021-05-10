@@ -1,10 +1,8 @@
-import React, { useState } from 'react'; 
+import React, { useRef, useState } from 'react'; 
 import ReactDOM from 'react-dom';
-import MenuIcon from '@material-ui/icons/Menu';
-import { AppBar, Grid, IconButton, Input, InputBase, TextField, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Grid, IconButton, Input, InputBase, Popover, Popper, TextField, Toolbar, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
-import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import apiRoute from './ApiData';
 import useFetch from './UseFetch';
 import { Autocomplete } from '@material-ui/lab';
@@ -49,15 +47,23 @@ const useStyles = makeStyles((theme) => ({
       },
       color: 'white'
     },
+    typography: {
+        padding: theme.spacing(1),
+      },
   }))
 
   export default function SearchBar(props) {
     const classes = useStyles();
+    const divRef = useRef();
 
     const searchTerms = useFetch(`${apiRoute}/searchterms`) ?? [];
 
     const [searchFieldValue, setSearchFieldValue] = useState('');
     const [redirectLink, setRedirectLink] = useState('');
+
+    const [popoverOpen, setPopoverOpen] = useState(true);
+
+    const searchBoxId = 'search-box';
 
     const handleSubmit = (e) => {
         if (searchFieldValue?.type != null && searchFieldValue?.term != null)
@@ -71,6 +77,21 @@ const useStyles = makeStyles((theme) => ({
         <div>
         {redirectLink !== '' && <Redirect to={redirectLink} />}
         <div className={classes.search}>
+        <Popover 
+            anchorEl={divRef.current}
+            anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+            }}
+            transformOrigin={{
+                vertical: 'bottom',
+                horizontal: 'right',
+              }}
+            open={popoverOpen}
+            onClose={() => setPopoverOpen(false)}
+            >
+            <Typography className={classes.typography}>In this box you can search for directors -></Typography>
+        </Popover>
         <div className={classes.searchIcon}>
             <SearchIcon />
         </div>
@@ -89,8 +110,10 @@ const useStyles = makeStyles((theme) => ({
                     
                     <div ref={params.InputProps.ref}>
                         <Input style={{ width: 400 }} 
+                            aria-describedby={searchBoxId}
                             type="text" {...params.inputProps} 
                             className={classes.inputInput} 
+                            ref={divRef}
                         />
                     </div>
                 )}
