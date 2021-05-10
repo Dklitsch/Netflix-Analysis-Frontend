@@ -29,8 +29,7 @@ function App() {
           <Switch>
             <Route path="/director/:name" children={<DirectorView/>}>
             </Route>
-            <Route path="/">
-              <HomeView />
+            <Route path="/" component={HomeView}>
             </Route>
           </Switch>
         </div>
