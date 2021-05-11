@@ -9,7 +9,8 @@ function DirectorView(props) {
     const { name } = useParams();
     const capitalizeName = (name) => name.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
     const directorData = useFetch(`${apiRoute}/director/${name}`);
-    const codirectorNames = directorData === null ? [] : Object.keys(directorData['director collabs']);
+    const directorCollabs = useFetch(`${apiRoute}/director/${name}/director collabs`);
+    const codirectorNames = directorCollabs === null ? [] : Object.keys(directorCollabs);
     const collabNames = directorData === null ? [] : Object.keys(directorData['cast collabs']);
     let cleanedCollabs = collabNames.map(name => { return { name: name, count: directorData['cast collabs'][name]}})
     cleanedCollabs = cleanedCollabs.sort((a, b) => b.count - a.count)
@@ -25,7 +26,7 @@ function DirectorView(props) {
             </p>
             <h4>Frequent co-directors: </h4>
             <p>
-              {codirectorNames.map(name => <div key={name}>{name}: {directorData['director collabs'][name]} titles</div>)}
+              {codirectorNames.map(name => <div key={name}>{name}: {directorCollabs[name]} titles</div>)}
             </p>
             <h4>Frequent collaborators: </h4>
             <p>

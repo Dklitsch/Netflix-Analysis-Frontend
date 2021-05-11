@@ -58,6 +58,8 @@ const useStyles = makeStyles((theme) => ({
 
     const searchTerms = useFetch(`${apiRoute}/searchterms`) ?? [];
 
+    console.log(searchTerms);
+
     const [searchFieldValue, setSearchFieldValue] = useState('');
     const [redirectLink, setRedirectLink] = useState('');
 
@@ -103,6 +105,7 @@ const useStyles = makeStyles((theme) => ({
                 getOptionLabel={(option) => option != '' ? `${option.type}: ${option.term}` : ''}
                 size="small"
                 value={searchFieldValue}
+                ref={divRef}
                 onChange={(event, option) => {
                     setSearchFieldValue(option);
                   }}
@@ -113,7 +116,7 @@ const useStyles = makeStyles((theme) => ({
                             aria-describedby={searchBoxId}
                             type="text" {...params.inputProps} 
                             className={classes.inputInput} 
-                            ref={divRef}
+                            
                         />
                     </div>
                 )}
