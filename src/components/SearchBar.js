@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
     const handleSubmit = (e) => {
         if (searchFieldValue?.type != null && searchFieldValue?.term != null)
           {
-            setRedirectLink(`/${searchFieldValue?.type}/${searchFieldValue?.term}`);
+            setRedirectLink(`/Netflix-Analysis-Frontend/${searchFieldValue?.type}/${searchFieldValue?.term}`);
           }   
         e.preventDefault();  
       }
@@ -117,8 +117,7 @@ const useStyles = makeStyles((theme) => ({
                         <Input style={{ width: 400 }} 
                             aria-describedby={searchBoxId}
                             type="text" {...params.inputProps} 
-                            className={classes.inputInput} 
-                            //onChange={getNewTerms}
+                            className={classes.inputInput}
                         />
                     </div>
                 )}

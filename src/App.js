@@ -28,8 +28,8 @@ function App() {
           <Toolbar></Toolbar>
           
           <Switch>
-            <Route path="/director/:name" children={<DirectorView/>} />
-            <Route path="/cast/:name" children={<CastView/>} />
+            <Route path="/Netflix-Analysis-Frontend/director/:name" children={<DirectorView/>} />
+            <Route path="/Netflix-Analysis-Frontend/cast/:name" children={<CastView/>} />
             <Route path="/" component={HomeView} />
           </Switch>
         </div>

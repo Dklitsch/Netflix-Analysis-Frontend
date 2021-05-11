@@ -30,11 +30,11 @@ function DirectorView(props) {
             </p>
             <h4>Frequent co-directors: </h4>
             <p>
-              {codirectorNames.map(name => <div key={name}><Link to={`/director/${name}`}>{name}</Link>: {directorCollabs[name]} titles</div>)}
+              {codirectorNames.map(name => <div key={name}><Link to={`/Netflix-Analysis-Frontend/director/${name}`}>{name}</Link>: {directorCollabs[name]} titles</div>)}
             </p>
             <h4>Frequent collaborators: </h4>
             <p>
-              {cleanedCollabs.map(a => <div key={a.name}><Link to={`/cast/${a.name}`}>{a.name}</Link>: {a.count} titles</div>)}
+              {cleanedCollabs.map(a => <div key={a.name}><Link to={`/Netflix-Analysis-Frontend/cast/${a.name}`}>{a.name}</Link>: {a.count} titles</div>)}
             </p>
           </div>}
       </div>

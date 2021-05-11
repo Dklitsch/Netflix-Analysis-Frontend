@@ -41,7 +41,7 @@ export default function AnalysisAppBar(props) {
                 open={Boolean(anchorEl)}
                 onClose={handleMenuClose}
               >
-                <MenuItem onClick={handleMenuClose}><Link to='/'>Home</Link></MenuItem>
+                <MenuItem onClick={handleMenuClose}><Link to='/Netflix-Analysis-Frontend'>Home</Link></MenuItem>
               </Menu>
             </IconButton>
             <div>
