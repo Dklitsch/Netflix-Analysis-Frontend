@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Netflix-Analysis-Frontend/static/css/main.6be599eb.chunk.css",
-    "main.js": "/Netflix-Analysis-Frontend/static/js/main.796ccdd3.chunk.js",
-    "main.js.map": "/Netflix-Analysis-Frontend/static/js/main.796ccdd3.chunk.js.map",
-    "runtime-main.js": "/Netflix-Analysis-Frontend/static/js/runtime-main.a570ca05.js",
-    "runtime-main.js.map": "/Netflix-Analysis-Frontend/static/js/runtime-main.a570ca05.js.map",
-    "static/js/2.3c4b39a8.chunk.js": "/Netflix-Analysis-Frontend/static/js/2.3c4b39a8.chunk.js",
-    "static/js/2.3c4b39a8.chunk.js.map": "/Netflix-Analysis-Frontend/static/js/2.3c4b39a8.chunk.js.map",
-    "static/js/3.1d956902.chunk.js": "/Netflix-Analysis-Frontend/static/js/3.1d956902.chunk.js",
-    "static/js/3.1d956902.chunk.js.map": "/Netflix-Analysis-Frontend/static/js/3.1d956902.chunk.js.map",
+    "main.js": "/Netflix-Analysis-Frontend/static/js/main.82e8e60f.chunk.js",
+    "main.js.map": "/Netflix-Analysis-Frontend/static/js/main.82e8e60f.chunk.js.map",
+    "runtime-main.js": "/Netflix-Analysis-Frontend/static/js/runtime-main.ae6f574a.js",
+    "runtime-main.js.map": "/Netflix-Analysis-Frontend/static/js/runtime-main.ae6f574a.js.map",
+    "static/js/2.5905ce71.chunk.js": "/Netflix-Analysis-Frontend/static/js/2.5905ce71.chunk.js",
+    "static/js/2.5905ce71.chunk.js.map": "/Netflix-Analysis-Frontend/static/js/2.5905ce71.chunk.js.map",
+    "static/js/3.aec8debb.chunk.js": "/Netflix-Analysis-Frontend/static/js/3.aec8debb.chunk.js",
+    "static/js/3.aec8debb.chunk.js.map": "/Netflix-Analysis-Frontend/static/js/3.aec8debb.chunk.js.map",
     "index.html": "/Netflix-Analysis-Frontend/index.html",
     "static/css/main.6be599eb.chunk.css.map": "/Netflix-Analysis-Frontend/static/css/main.6be599eb.chunk.css.map",
-    "static/js/2.3c4b39a8.chunk.js.LICENSE.txt": "/Netflix-Analysis-Frontend/static/js/2.3c4b39a8.chunk.js.LICENSE.txt"
+    "static/js/2.5905ce71.chunk.js.LICENSE.txt": "/Netflix-Analysis-Frontend/static/js/2.5905ce71.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.a570ca05.js",
-    "static/js/2.3c4b39a8.chunk.js",
+    "static/js/runtime-main.ae6f574a.js",
+    "static/js/2.5905ce71.chunk.js",
     "static/css/main.6be599eb.chunk.css",
-    "static/js/main.796ccdd3.chunk.js"
+    "static/js/main.82e8e60f.chunk.js"
   ]
 }
