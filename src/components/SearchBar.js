@@ -56,12 +56,10 @@ const useStyles = makeStyles((theme) => ({
     const classes = useStyles();
     const divRef = useRef();
 
-    const searchTerms = useFetch(`${apiRoute}/searchterms`) ?? [];
-
-    console.log(searchTerms);
-
     const [searchFieldValue, setSearchFieldValue] = useState('');
+    const [inputValue, setInputValue] = useState('');
     const [redirectLink, setRedirectLink] = useState('');
+    const searchTerms = useFetch(`${apiRoute}/searchterms/${inputValue}`) ?? []
 
     const [popoverOpen, setPopoverOpen] = useState(true);
 
@@ -109,6 +107,10 @@ const useStyles = makeStyles((theme) => ({
                 onChange={(event, option) => {
                     setSearchFieldValue(option);
                   }}
+                inputValue={inputValue}
+                onInputChange={(event, newInputValue) => {
+                    setInputValue(newInputValue);
+                  }}
                 renderInput={(params) => (
                     
                     <div ref={params.InputProps.ref}>
@@ -116,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
                             aria-describedby={searchBoxId}
                             type="text" {...params.inputProps} 
                             className={classes.inputInput} 
-                            
+                            //onChange={getNewTerms}
                         />
                     </div>
                 )}

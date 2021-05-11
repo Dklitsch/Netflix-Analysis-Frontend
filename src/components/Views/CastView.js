@@ -6,39 +6,39 @@ import { Link } from 'react-router-dom';
 import apiRoute from '../ApiData';
 import useFetch from '../UseFetch';
 
-function DirectorView(props) {
+function CastView(props) {
 
     const { name } = useParams();
 
     const capitalizeName = (name) => name.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
-    const directorData = useFetch(`${apiRoute}/director/${name}`);
-    const directorCollabs = useFetch(`${apiRoute}/director/${name}/director collabs`);
+    const castData = useFetch(`${apiRoute}/cast/${name}`);
+    const directorCollabs = useFetch(`${apiRoute}/cast/${name}/director collabs`);
+    const castCollabs = useFetch(`${apiRoute}/director/${name}/cast collabs`);
     const codirectorNames = directorCollabs === null ? [] : Object.keys(directorCollabs);
-    const collabNames = directorData === null ? [] : Object.keys(directorData['cast collabs']);
-    let cleanedCollabs = collabNames.map(name => { return { name: name, count: directorData['cast collabs'][name]}})
-    cleanedCollabs = cleanedCollabs.sort((a, b) => b.count - a.count)
+    const collabNames = castCollabs === null ? [] : Object.keys(castCollabs);
+    let cleanedCollabs = collabNames.map(name => { return { name: name, count: castCollabs[name]}})
     
 
     return (
       <div>
-        {directorData != null &&
+        {castData != null &&
           <div>
             <h2>{capitalizeName(name)}</h2>
-            <h4>{directorData.titles.length} Titles: </h4>
+            <h4>{castData.length} Titles: </h4>
             <p>
-              {directorData.titles.map( d => <div key={d.title}>{d.title}{d.title} - {d.country} - {d['release_year']}</div>)}
+              {castData.map( d => <div key={d.title}>{d.title} - {d.country} - {d['release_year']}</div>)}
             </p>
-            <h4>Frequent co-directors: </h4>
+            <h4>Frequent directed by: </h4>
             <p>
               {codirectorNames.map(name => <div key={name}><Link to={`/director/${name}`}>{name}</Link>: {directorCollabs[name]} titles</div>)}
             </p>
             <h4>Frequent collaborators: </h4>
             <p>
-              {cleanedCollabs.map(a => <div key={a.name}>{a.name}: {a.count} titles</div>)}
+              {cleanedCollabs.map(a => <div key={a.name}><Link to={`/cast/${a.name}`}>{a.name}</Link>: {a.count} titles</div>)}
             </p>
           </div>}
       </div>
     );
   }
 
-export default DirectorView;
+  export default CastView;

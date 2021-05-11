@@ -26,7 +26,7 @@ function DirectorView(props) {
             <h2>{capitalizeName(name)}</h2>
             <h4>{directorData.length} Titles: </h4>
             <p>
-              {directorData.map( d => <div key={d.title}>{d.title}{d.title} - {d.country} - {d['release_year']}</div>)}
+              {directorData.map( d => <div key={d.title}>{d.title} - {d.country} - {d['release_year']}</div>)}
             </p>
             <h4>Frequent co-directors: </h4>
             <p>
@@ -34,7 +34,7 @@ function DirectorView(props) {
             </p>
             <h4>Frequent collaborators: </h4>
             <p>
-              {cleanedCollabs.map(a => <div key={a.name}>{a.name}: {a.count} titles</div>)}
+              {cleanedCollabs.map(a => <div key={a.name}><Link to={`/cast/${a.name}`}>{a.name}</Link>: {a.count} titles</div>)}
             </p>
           </div>}
       </div>

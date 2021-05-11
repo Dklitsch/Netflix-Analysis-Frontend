@@ -6,6 +6,7 @@ import HomeView from './components/Views/HomeView'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import DirectorView from './components/Views/DirectorView';
 import AnalysisAppBar from './components/AnalysisAppBar';
+import CastView from './components/Views/CastView';
 
 const theme = createMuiTheme({
   palette: {
@@ -27,10 +28,9 @@ function App() {
           <Toolbar></Toolbar>
           
           <Switch>
-            <Route path="/director/:name" children={<DirectorView/>}>
-            </Route>
-            <Route path="/" component={HomeView}>
-            </Route>
+            <Route path="/director/:name" children={<DirectorView/>} />
+            <Route path="/cast/:name" children={<CastView/>} />
+            <Route path="/" component={HomeView} />
           </Switch>
         </div>
       </ThemeProvider>
