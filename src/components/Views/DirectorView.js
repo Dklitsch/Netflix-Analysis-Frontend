@@ -1,12 +1,15 @@
+import { makeStyles } from '@material-ui/styles';
 import React from 'react'; 
 import ReactDOM from 'react-dom'; 
 import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
 import apiRoute from '../ApiData';
 import useFetch from '../UseFetch';
 
 function DirectorView(props) {
 
     const { name } = useParams();
+
     const capitalizeName = (name) => name.replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())))
     const directorData = useFetch(`${apiRoute}/director/${name}`);
     const directorCollabs = useFetch(`${apiRoute}/director/${name}/director collabs`);
@@ -14,6 +17,7 @@ function DirectorView(props) {
     const collabNames = directorData === null ? [] : Object.keys(directorData['cast collabs']);
     let cleanedCollabs = collabNames.map(name => { return { name: name, count: directorData['cast collabs'][name]}})
     cleanedCollabs = cleanedCollabs.sort((a, b) => b.count - a.count)
+    
 
     return (
       <div>
@@ -26,7 +30,7 @@ function DirectorView(props) {
             </p>
             <h4>Frequent co-directors: </h4>
             <p>
-              {codirectorNames.map(name => <div key={name}>{name}: {directorCollabs[name]} titles</div>)}
+              {codirectorNames.map(name => <div key={name}><Link to={`/director/${name}`}>{name}</Link>: {directorCollabs[name]} titles</div>)}
             </p>
             <h4>Frequent collaborators: </h4>
             <p>
