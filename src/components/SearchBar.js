@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react'; 
 import ReactDOM from 'react-dom';
-import { AppBar, Grid, IconButton, Input, InputBase, Popover, Popper, TextField, Toolbar, Typography } from '@material-ui/core';
+import { Input, Typography } from '@material-ui/core';
+import { Popover } from 'react-tiny-popover'
 import SearchIcon from '@material-ui/icons/Search';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import apiRoute from './ApiData';
@@ -54,15 +55,11 @@ const useStyles = makeStyles((theme) => ({
 
   export default function SearchBar(props) {
     const classes = useStyles();
-    const divRef = useRef();
 
     const [searchFieldValue, setSearchFieldValue] = useState('');
     const [inputValue, setInputValue] = useState('');
     const [redirectLink, setRedirectLink] = useState('');
     const searchTerms = useFetch(`${apiRoute}/searchterms/${inputValue}`) ?? []
-
-    const [popoverOpen, setPopoverOpen] = useState(true);
-
     const searchBoxId = 'search-box';
 
     const handleSubmit = (e) => {
@@ -77,33 +74,16 @@ const useStyles = makeStyles((theme) => ({
         <div>
         {redirectLink !== '' && <Redirect to={redirectLink} />}
         <div className={classes.search}>
-        <Popover 
-            anchorEl={divRef.current}
-            anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-            }}
-            transformOrigin={{
-                vertical: 'bottom',
-                horizontal: 'right',
-              }}
-            open={popoverOpen}
-            onClose={() => setPopoverOpen(false)}
-            >
-            <Typography className={classes.typography}>In this box you can search for directors -></Typography>
-        </Popover>
         <div className={classes.searchIcon}>
             <SearchIcon />
         </div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
         <Autocomplete
-                id="free-solo-demo"
                 className={classes.inputRoot}
                 options={searchTerms}
                 getOptionLabel={(option) => option != '' ? `${option.type}: ${option.term}` : ''}
                 size="small"
                 value={searchFieldValue}
-                ref={divRef}
                 onChange={(event, option) => {
                     setSearchFieldValue(option);
                   }}
@@ -122,7 +102,7 @@ const useStyles = makeStyles((theme) => ({
                     </div>
                 )}
             />
-            </form>
+        </form>
         </div>
         </div>
       )

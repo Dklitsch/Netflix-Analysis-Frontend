@@ -1,19 +1,16 @@
-import React from 'react'; 
+import React, { useRef, useState, useEffect } from 'react'; 
 import ReactDOM from 'react-dom';
 import MenuIcon from '@material-ui/icons/Menu';
-import { AppBar, Grid, IconButton, Input, InputBase, Menu, MenuItem, TextField, Toolbar, Typography } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import { fade, makeStyles } from '@material-ui/core/styles';
-import { ReactSearchAutocomplete } from 'react-search-autocomplete'
-import apiRoute from './ApiData';
-import useFetch from './UseFetch';
-import { Autocomplete } from '@material-ui/lab';
+import { AppBar, Grid, IconButton, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core';
 import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
 
 export default function AnalysisAppBar(props) {
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const divRef = useRef();
+    const [showTutorial, setShowTutorial] = useState(true);
 
     const handleMenuOpen = (event) => {
       setAnchorEl(event.currentTarget);
@@ -22,6 +19,15 @@ export default function AnalysisAppBar(props) {
     const handleMenuClose = () => {
       setAnchorEl(null);
     };
+
+    const closeTutorial = () => {setShowTutorial(false)}
+
+    useEffect(()=>{
+      if (showTutorial)
+      {
+        divRef.current.focus();
+      }
+    });
 
     return (
         <AppBar color="primary" position="fixed">
@@ -51,6 +57,9 @@ export default function AnalysisAppBar(props) {
               justify="flex-end"
               alignItems="center"
               >
+                { showTutorial &&   
+                  <Typography ref={divRef} onBlur={() => closeTutorial()} tabindex="0">Use this box to search for directors and actors -></Typography>
+                }
                 <SearchBar></SearchBar>
                 <Typography variant="h6">Netflix Analysis Dashboard</Typography>
               </Grid>

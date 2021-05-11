@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom'; 
 import useFetch from '../UseFetch';
-import Chart from "react-google-charts"
-import StyledChart from '../StyledChart';
 import TypeChart from '../TypeChart';
 import DirectorChart from '../DirectorChart';
 import CastChart from '../CastChart';
 import CountryChart from '../CountryChart';
 import YearChart from '../YearChart';
 import ListedInChart from '../ListedInChart';
-import apiRoute, {typeData, directorData, castData} from '../ApiData';
+import apiRoute from '../ApiData';
 
 function HomeView(props) {
 
