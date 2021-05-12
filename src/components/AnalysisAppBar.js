@@ -75,7 +75,7 @@ export default function AnalysisAppBar(props) {
                     onBlur={() => closeTutorial()} 
                     tabindex="0"
                     className={classes.popover}
-                  >Use this box to search for directors and actors -></Typography>
+                  >Use this box to search for directors, actors and more -></Typography>
                 }
                 <SearchBar></SearchBar>
                 <Typography variant="h6">Netflix Analysis Dashboard</Typography>
