@@ -35,7 +35,7 @@ function HomeView(props) {
           Hi, welcome to my Netflix Analysis Dashboard!
         </p>
 
-        <p>This dashboard displays some interesting statistics about Netflix titles The goal is to present the data in an intuitive and accessable way.</p>
+        <p>This dashboard displays some interesting statistics about Netflix titles. The goal is to present the data in an intuitive and accessable way.</p>
         
         <p>This project is based on <a href="https://www.kaggle.com/shivamb/netflix-shows" target="_blank">this</a> dataset from Flixable. </p>
 
