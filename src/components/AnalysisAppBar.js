@@ -1,33 +1,45 @@
 import React, { useRef, useState, useEffect } from 'react'; 
 import ReactDOM from 'react-dom';
 import MenuIcon from '@material-ui/icons/Menu';
-import { AppBar, Grid, IconButton, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, fade, Grid, IconButton, Menu, MenuItem, Toolbar, Typography } from '@material-ui/core';
 import SearchBar from './SearchBar';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/styles';
+
+const useStyles = makeStyles((theme) => ({
+  popover: { 
+    backgroundColor: fade(theme.palette.common.white, 0.15), 
+    padding: '.5em',
+    borderRadius: '1em',
+    border: '1px solid black'
+  }
+}))
 
 export default function AnalysisAppBar(props) {
 
-    const [anchorEl, setAnchorEl] = useState(null);
+  const classes = useStyles();
 
-    const divRef = useRef();
-    const [showTutorial, setShowTutorial] = useState(true);
+  const [anchorEl, setAnchorEl] = useState(null);
 
-    const handleMenuOpen = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
+  const divRef = useRef();
+  const [showTutorial, setShowTutorial] = useState(true);
 
-    const handleMenuClose = () => {
-      setAnchorEl(null);
-    };
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-    const closeTutorial = () => {setShowTutorial(false)}
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
 
-    useEffect(()=>{
-      if (showTutorial)
-      {
-        divRef.current.focus();
-      }
-    });
+  const closeTutorial = () => {setShowTutorial(false)}
+
+  useEffect(()=>{
+    if (showTutorial)
+    {
+      divRef.current.focus();
+    }
+  });
 
     return (
         <AppBar color="primary" position="fixed">
@@ -58,7 +70,12 @@ export default function AnalysisAppBar(props) {
               alignItems="center"
               >
                 { showTutorial &&   
-                  <Typography ref={divRef} onBlur={() => closeTutorial()} tabindex="0">Use this box to search for directors and actors -></Typography>
+                  <Typography 
+                    ref={divRef} 
+                    onBlur={() => closeTutorial()} 
+                    tabindex="0"
+                    className={classes.popover}
+                  >Use this box to search for directors and actors -></Typography>
                 }
                 <SearchBar></SearchBar>
                 <Typography variant="h6">Netflix Analysis Dashboard</Typography>
