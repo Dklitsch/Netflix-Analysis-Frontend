@@ -8,6 +8,7 @@ import CountryChart from '../CountryChart';
 import YearChart from '../YearChart';
 import ListedInChart from '../ListedInChart';
 import apiRoute from '../ApiData';
+import { Link } from 'react-router-dom';
 
 function HomeView(props) {
 
@@ -28,6 +29,10 @@ function HomeView(props) {
     const oldestMovies = useFetch(`${apiRoute}/movie?order=asc&take=5`);
 
     const oldestTV = useFetch(`${apiRoute}/tvshow?order=asc&take=5`);
+
+    const linkToDirector = (directorList) => {
+      return directorList.split(", ").map(director => <Link to={`/Netflix-Analysis-Frontend/director/${director}`}>{director}</Link>).reduce((prev, curr) => [prev, ', ', curr])
+    }
 
     return (
     <>
@@ -58,7 +63,7 @@ function HomeView(props) {
         <h2>Top 5 Oldest movies</h2>
 
         <ol>
-          {oldestMovies != null && oldestMovies.map( d => <li key= {d.title}>{d.title} by {d.director ?? 'unlisted'} - {d['release_year']}</li>)}
+          {oldestMovies != null && oldestMovies.map( d => <li key= {d.title}>{d.title} by {linkToDirector(d.director) ?? 'unlisted'} - {d['release_year']}</li>)}
         </ol>
 
         <h2>Top 5 Oldest TV shows</h2>
