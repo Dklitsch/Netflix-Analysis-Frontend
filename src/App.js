@@ -7,6 +7,7 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import DirectorView from './components/Views/DirectorView';
 import AnalysisAppBar from './components/AnalysisAppBar';
 import CastView from './components/Views/CastView';
+import CountryView from './components/Views/CountryView';
 
 const theme = createMuiTheme({
   palette: {
@@ -30,6 +31,7 @@ function App() {
           <Switch>
             <Route path="/Netflix-Analysis-Frontend/director/:name" children={<DirectorView/>} />
             <Route path="/Netflix-Analysis-Frontend/cast/:name" children={<CastView/>} />
+            <Route path="/Netflix-Analysis-Frontend/country/:name" children={<CountryView/>} />
             <Route path="/" component={HomeView} />
           </Switch>
         </div>
