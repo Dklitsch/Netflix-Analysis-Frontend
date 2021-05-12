@@ -18,6 +18,10 @@ function DirectorView(props) {
     const collabNames = castCollabs === null ? [] : Object.keys(castCollabs);
     let cleanedCollabs = collabNames.map(name => { return { name: name, count: castCollabs[name]}})
     
+    const linkCountries = (countryList) => {
+      console.log(countryList.split(", ").map(country => <Link to={`/Netflix-Analysis-Frontend/country/${country}`}>country</Link>))
+      return countryList.split(", ").map(country => <Link to={`/Netflix-Analysis-Frontend/country/${country}`}>{country}</Link>).reduce((prev, curr) => [prev, ', ', curr])
+    }
 
     return (
       <div>
@@ -26,7 +30,7 @@ function DirectorView(props) {
             <h2>{capitalizeName(name)}</h2>
             <h4>{directorData.length} Titles: </h4>
             <p>
-              {directorData.map( d => <div key={d.title}>{d.title} - {d.country} - {d['release_year']}</div>)}
+              {directorData.map( d => <div key={d.title}>{d.title} - {linkCountries(d.country)} - {d['release_year']}</div>)}
             </p>
             <h4>Frequent co-directors: </h4>
             <p>

@@ -14,8 +14,8 @@ function CountryView(props) {
     const countryData = useFetch(`${apiRoute}/country/${name}`);
     const directorNames = countryData === null ? [] : Object.keys(countryData.topDirectors);
     const castNames = countryData === null ? [] : Object.keys(countryData.topCast);
-    let cleanedDirectors = directorNames.map(name => { return { name: name, count: countryData.topDirectors[name]}}).sort((a, b) => a - b);
-    let cleanedCast = castNames.map(name => { return { name: name, count: countryData.topCast[name]}}).sort((a, b) => a - b);
+    let cleanedDirectors = directorNames.map(name => { return { name: name, count: countryData.topDirectors[name]}}).sort((a, b) => b.count - a.count);
+    let cleanedCast = castNames.map(name => { return { name: name, count: countryData.topCast[name]}}).sort((a, b) => b.count - a.count);
     
 
     return (
@@ -24,13 +24,13 @@ function CountryView(props) {
           <div>
             <h2>{capitalizeName(name)}</h2>
             <h4>{countryData.titleCount} Titles: </h4>
-            <h4>Prolific Directors: </h4>
+            <h4>Prolific directors: </h4>
             <p>
               {
                 cleanedDirectors.map(a => <div key={a.name}><Link to={`/Netflix-Analysis-Frontend/director/${a.name}`}>{a.name}</Link>: {a.count} titles</div>)
               }
             </p>
-            <h4>Frequent collaborators: </h4>
+            <h4>Frequent cast members: </h4>
             <p>
               {
                 cleanedCast.map(a => <div key={a.name}><Link to={`/Netflix-Analysis-Frontend/cast/${a.name}`}>{a.name}</Link>: {a.count} titles</div>)

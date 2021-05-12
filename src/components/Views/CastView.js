@@ -17,6 +17,11 @@ function CastView(props) {
     const codirectorNames = directorCollabs === null ? [] : Object.keys(directorCollabs);
     const collabNames = castCollabs === null ? [] : Object.keys(castCollabs);
     let cleanedCollabs = collabNames.map(name => { return { name: name, count: castCollabs[name]}})
+
+    const linkCountries = (countryList) => {
+      console.log(countryList.split(", ").map(country => <Link to={`/Netflix-Analysis-Frontend/country/${country}`}>country</Link>))
+      return countryList.split(", ").map(country => <Link to={`/Netflix-Analysis-Frontend/country/${country}`}>{country}</Link>).reduce((prev, curr) => [prev, ', ', curr])
+    }
     
 
     return (
@@ -26,7 +31,7 @@ function CastView(props) {
             <h2>{capitalizeName(name)}</h2>
             <h4>{castData.length} Titles: </h4>
             <p>
-              {castData.map( d => <div key={d.title}>{d.title} - {d.country} - {d['release_year']}</div>)}
+              {castData.map(d => <div key={d.title}>{d.title} - {linkCountries(d.country)} - {d['release_year']}</div>)}
             </p>
             <h4>Frequent directed by: </h4>
             <p>
