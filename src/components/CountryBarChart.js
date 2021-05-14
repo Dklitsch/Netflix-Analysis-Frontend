@@ -1,6 +1,6 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom'; 
-import StyledChart from './StyledChart'
+import StyledChart from './StyledBarChart'
 
 function CountryChart(props) {
 

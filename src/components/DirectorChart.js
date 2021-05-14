@@ -1,7 +1,7 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom'; 
 import { Link } from 'react-router-dom';
-import StyledChart from './StyledChart'
+import StyledChart from './StyledBarChart'
 
 function DirectorChart(props) {
 

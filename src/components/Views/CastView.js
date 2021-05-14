@@ -19,7 +19,6 @@ function CastView(props) {
     let cleanedCollabs = collabNames.map(name => { return { name: name, count: castCollabs[name]}})
 
     const linkCountries = (countryList) => {
-      console.log(countryList.split(", ").map(country => <Link to={`/Netflix-Analysis-Frontend/country/${country}`}>country</Link>))
       return countryList.split(", ").map(country => <Link to={`/Netflix-Analysis-Frontend/country/${country}`}>{country}</Link>).reduce((prev, curr) => [prev, ', ', curr])
     }
     

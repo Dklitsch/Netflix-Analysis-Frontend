@@ -4,7 +4,7 @@ import useFetch from '../UseFetch';
 import TypeChart from '../TypeChart';
 import DirectorChart from '../DirectorChart';
 import CastChart from '../CastChart';
-import CountryChart from '../CountryChart';
+import CountryBarChart from '../CountryBarChart';
 import YearChart from '../YearChart';
 import ListedInChart from '../ListedInChart';
 import apiRoute from '../ApiData';
@@ -18,7 +18,7 @@ function HomeView(props) {
 
     const castData = useFetch(`${apiRoute}/cast/top5`);
 
-    const countryData = useFetch(`${apiRoute}/country/top10`);
+    const countryTop10Data = useFetch(`${apiRoute}/country/top10`);
 
     const topYearData = useFetch(`${apiRoute}/releaseyear/top10`);
 
@@ -52,7 +52,7 @@ function HomeView(props) {
 
         <CastChart data={castData} />
 
-        <CountryChart data={countryData} />
+        <CountryBarChart data={countryTop10Data} />
 
         <h2>Netflix skews heavily towards newer titles, half of all titles were released after 2017!</h2>
 
