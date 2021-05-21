@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'; 
 import Chart from "react-google-charts"
   
-const StyledChart= (props)=>
+const StyledLineChart= (props)=>
 {
     const chartTextStyle = {color: '#FFF'};
 
@@ -10,7 +10,7 @@ const StyledChart= (props)=>
     <Chart
     width={'95vw'}
     height= {props?.height ?? '33vh'}
-    chartType="BarChart"
+    chartType="Line"
     loader={<div>Loading Chart</div>}
     data={props.data}
     options={{
@@ -24,7 +24,7 @@ const StyledChart= (props)=>
         minValue: 0,
         textStyle: chartTextStyle,
           titleTextStyle: chartTextStyle,
-        gridlines : {multiple : 1}
+          format:"#"
       },
       vAxis: {
         title: props.axisTitle,
@@ -42,4 +42,4 @@ const StyledChart= (props)=>
   )
 }
   
-export default StyledChart;
+export default StyledLineChart;

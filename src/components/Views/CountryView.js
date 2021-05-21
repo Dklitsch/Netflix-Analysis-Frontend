@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 import apiRoute from '../ApiData';
+import StyledLineChart from '../StyledLineChart';
 import useFetch from '../UseFetch';
 import { capitalizeName } from '../Utilities';
 
@@ -15,8 +16,7 @@ function CountryView(props) {
     const directorNames = countryData === null ? [] : Object.keys(countryData.topDirectors);
     const castNames = countryData === null ? [] : Object.keys(countryData.topCast);
     let cleanedDirectors = directorNames.map(name => { return { name: name, count: countryData.topDirectors[name]}}).sort((a, b) => b.count - a.count);
-    let cleanedCast = castNames.map(name => { return { name: name, count: countryData.topCast[name]}}).sort((a, b) => b.count - a.count);
-    
+    let cleanedCast = castNames.map(name => { return { name: name, count: countryData.topCast[name]}}).sort((a, b) => b.count - a.count); 
 
     return (
       <div>

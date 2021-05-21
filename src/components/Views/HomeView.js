@@ -56,6 +56,8 @@ function HomeView(props) {
 
         <h2>Netflix skews heavily towards newer titles, half of all titles were released after 2017!</h2>
 
+        <img src={`${apiRoute}/releaseyear/yearchart.png`}></img>
+
         <YearChart data={topYearData} title='10 years with the most Netflix titles'/>
 
         <YearChart data={bottomYearData} title='10 years with the least Netflix titles'/>
