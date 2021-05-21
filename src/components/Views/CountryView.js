@@ -23,7 +23,8 @@ function CountryView(props) {
         {countryData != null &&
           <div>
             <h2>{capitalizeName(name)}</h2>
-            <h4>{countryData.titleCount} Titles: </h4>
+            <h4>{countryData.titleCount} Titles</h4>
+            <img src={`${apiRoute}/country/${name}/yearchart.png`}></img>
             <h4>Prolific directors: </h4>
             <p>
               {
