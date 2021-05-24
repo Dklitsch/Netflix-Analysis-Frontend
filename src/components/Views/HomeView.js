@@ -48,6 +48,10 @@ function HomeView(props) {
 
         <DirectorChart data={directorData} />
 
+        <p>High release directors tend to release their titles in huge batches. For example, co-directors Jan Suter and Raúl Campos released a wopping 12 titles in 2018 compared to the average director who has only a single title on Netflix.</p>
+
+        <p>High release directors tend to have a large number of newer releases. The oldest film by any top 5 director is 2008's "A Very Special Love" by Cathy Garcia-Molina. None of the top 5 directors have any titles released before the 2000s.</p>
+
         <p>Only around 7% of TV shows list directors, notable exceptions being documentarians like Alastair Fothergill with 3 titles and Ken Burns with 2.</p>
 
         <CastChart data={castData} />
