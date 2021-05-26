@@ -56,6 +56,20 @@ function HomeView(props) {
 
         <CastChart data={castData} />
 
+        <p>How does a person become the most prolific actor on Netflix? Does it help to be consistent? Let's take a closer look at the top 100 actors and find out.</p>
+
+        <img src={`${apiRoute}/cast/top100/mean_releases_scatterplot.png`}></img>
+
+        <p>As we might expect our data tends to cluster in the lower right corner. We have a couple of outliers with high average titles per year, but a low number of total titles.</p>
+          
+        <p>Our most prolific actor, Anupam Kher, actually has remarkably few average releases: <strong>1.83 releases per year</strong>. For comparisan, Takahiro Sakurai, tied for 5th place, has <strong>2.64 releases per year</strong>.</p>
+
+        <p>What about the number of years where the actor released at least one movie? Do long careers win out over shorter, more productive ones?</p>
+
+        <img src={`${apiRoute}/cast/top100/years_active_scatterplot.png`}></img>
+
+        <p>That's a lot clearer of a trend. Part of Anupam Kher's success is he's been active for an astounding 23 years. Takahiro Sakurai's 11 year career means he's still catching up. Shah Rukh Khan does have a slightly longer 24 year career, but his lower 1.5 title per year average means that Anupam was able to outpace him.</p>
+
         <CountryBarChart data={countryTop10Data} />
 
         <h2>Netflix skews heavily towards newer titles, half of all titles were released after 2017!</h2>
